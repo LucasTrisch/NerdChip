@@ -73,4 +73,9 @@ public class Produto {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public Object buscarPorId(Long id2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
+    }
 }
