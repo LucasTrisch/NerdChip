@@ -4,7 +4,7 @@ package comNerdChip.NerdChip.controller;
 
 import comNerdChip.NerdChip.dtos.ProdutoDTO;
 import comNerdChip.NerdChip.models.Produto;
-import comNerdChip.NerdChip.service.ProdutoService;
+import comNerdChip.NerdChip.repositories.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +16,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
-    @Autowired
-    private ProdutoService produtoService;
 
+    private final repositories.ProdutoRepository produtoRepository;
+
+    ProdutoController(repositories.ProdutoRepository produtoRepository) {
+        this.produtoRepository = produtoRepository;
+    }
+    @Autowired
+    
     @GetMapping
-    public ResponseEntity<List<ProdutoDTO>> listarTodos() {
-        return ResponseEntity.ok(produtoService.listarTodos());
+    public ResponseEntity<ResponseEntity<List<ProdutoDTO>>> listarTodos() {
+        return ResponseEntity.ok(produtoRepository.listarTodos());
     }
 
     @GetMapping("/{id}")
