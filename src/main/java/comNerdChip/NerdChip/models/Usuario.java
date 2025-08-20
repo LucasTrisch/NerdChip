@@ -1,11 +1,11 @@
 package comNerdChip.NerdChip.models;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
-import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -21,6 +21,9 @@ public class Usuario {
 
     public Usuario() {
     }
+    @OneToMany(mappedBy="usuario")
+    List<Pedido> pedidos;
+    
     public Usuario(Long id, String nome, String email, String senha, String papel, String telefone, String endereco) {
         this.id = id;
         this.nome = nome;
