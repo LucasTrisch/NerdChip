@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import comNerdChip.NerdChip.dtos.UsuarioDTO;
 import comNerdChip.NerdChip.repositories.UsuarioRepository;
-import io.micrometer.core.ipc.http.HttpSender;
 
 @Service
 public class UsuarioService {
